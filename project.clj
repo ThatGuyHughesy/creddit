@@ -6,5 +6,7 @@
   :author "Conor Hughes <hello@conorhughes.me>"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/data.json "0.2.6"]
-                 [clj-http "3.4.1"]]
-  :dev-dependencies [[lein-clojars "0.9.1"]])
+                 [clj-http "3.4.1"]
+                 [environ "1.1.0"]]
+  :dev-dependencies [[lein-clojars "0.9.1"]]
+  :plugins [[lein-environ "1.0.0"]])
