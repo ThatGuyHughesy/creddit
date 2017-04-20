@@ -9,7 +9,9 @@ pom.xml.asc
 .lein-repl-history
 .lein-plugins/
 .lein-failures
+.lein-env
 .nrepl-port
 .idea/
 *.iml
 .DS_Store
+profiles.clj
