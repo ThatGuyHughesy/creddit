@@ -44,36 +44,49 @@ Once you have your credentials loaded in you can initialise the client:
 
 *Retrieve posts from frontpage*
 
-**limit:** Number of posts to retrieve (min: 1, max: 100, default: 10) 
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)  
+**time:** Time span of query (One of :hour, :day, :week, :month, :year, :all)
 
 ```clojure
-(creddit/frontpage creddit-client)
-(creddit/frontpage creddit-client limit)
-``` 
+(creddit/frontpage creddit-client limit time)
+
+(creddit/controversial creddit-client limit time)
+
+(creddit/new creddit-client limit time)
+
+(creddit/rising creddit-client limit time)
+
+(creddit/top creddit-client limit time)
+```
 
 ### Subreddit
 
 *Retrieve posts from subreddit*
 
-**subreddit:** Name of subreddit (eg: "programming", "funny", "pics" etc...)  
-**limit:** Number of posts to retrieve (min: 1, max: 100, default: 10)  
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)  
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)  
+**time:** Time span of query (One of :hour, :day, :week, :month, :year, :all)
 
 ```clojure
-(creddit/subreddit creddit-client subreddit)
+(creddit/subreddit creddit-client subreddit limit time)
 
-(creddit/subreddit creddit-client subreddit limit)
+(creddit/subreddit-controversial creddit-client subreddit limit time)
+
+(creddit/subreddit-new creddit-client subreddit limit time)
+
+(creddit/subreddit-rising creddit-client subreddit limit time)
+
+(creddit/subreddit-top creddit-client subreddit limit time)
 ```
 
 ### Subreddits
 
 *Retrieve list of subreddits*
 
-**limit:** Number of subreddits to retrieve (min: 1, max: 100, default: 10)  
+**limit:** Maximum number of subreddits to retrieve (Minimum: 1, Maximum: 100)   
 
 ```clojure
-(creddit/frontpage creddit-client)
-
-(creddit/frontpage creddit-client limit)
+(creddit/subreddits creddit-client limit)
 ```
 
 
@@ -81,7 +94,7 @@ Once you have your credentials loaded in you can initialise the client:
 
 *Retrieve user profile*
 
-**username:** Name of user (eg: "thisisbillgates", "awildsketchappeared", "way_fairer" etc...)  
+**username:** Name of user (Eg: "thisisbillgates", "awildsketchappeared", "way_fairer" etc...)  
 
 ```clojure
 (creddit/user creddit-client username)
@@ -89,13 +102,12 @@ Once you have your credentials loaded in you can initialise the client:
 
 *Retrieve user posts*
 
-**username:** Name of user (eg: "thisisbillgates", "awildsketchappeared", "way_fairer" etc...)  
-**limit:** Number of posts to retrieve (min: 1, max: 100, default: 10)  
+**username:** Name of user (Eg: "thisisbillgates", "awildsketchappeared", "way_fairer" etc...)  
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)  
+**time:** Time span of query (One of :hour, :day, :week, :month, :year, :all)
 
 ```clojure
-(creddit/user-posts creddit-client username)
-
-(creddit/user-posts creddit-client username limit)
+(creddit/user-posts creddit-client username limit time)
 ```
 
 ## Development
