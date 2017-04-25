@@ -15,24 +15,49 @@
 
 (deftest test-frontpage
   (testing "Retrieve frontpage posts"
-    (is (= 10 (count (frontpage (:credentials creddit-client)))))))
-
-(deftest test-frontpage-limit
-  (testing "Retrieve 50 frontpage posts"
-    (is (= 50 (count (frontpage (:credentials creddit-client) 50))))))
+    (is (= 10 (-> (frontpage creddit-client)
+                  (count))))
+    (is (= 50 (-> (frontpage creddit-client 50)
+                  (count))))
+    (is (thrown? Exception (-> (frontpage creddit-client "50")
+                               (count))))
+    (is (thrown? Exception (-> (frontpage creddit-client "abc")
+                               (count))))))
 
 (deftest test-subreddit
   (testing "Retrieve subreddit posts"
-    (is (= 10 (count (subreddit (:credentials creddit-client) "programming"))))))
-
-(deftest test-subreddit-limit
-  (testing "Retrieve 50 subreddit posts"
-    (is (= 50 (count (subreddit (:credentials creddit-client) "programming" 50))))))
+    (is (= 10 (-> (subreddit creddit-client "programming")
+                  (count))))
+    (is (= 50 (-> (subreddit creddit-client "programming" 50)
+                  (count))))
+    (is (thrown? Exception (-> (test-subreddit creddit-client "programming" "50")
+                               (count))))
+    (is (thrown? Exception (-> (test-subreddit creddit-client "programming" "abc")
+                               (count))))))
 
 (deftest test-subreddits
   (testing "Retrieve subreddits"
-    (is (= 10 (count (subreddits (:credentials creddit-client)))))))
+    (is (= 10 (-> (subreddits creddit-client)
+                  (count))))
+    (is (= 50 (-> (subreddits creddit-client 50)
+                  (count))))
+    (is (thrown? Exception (-> (subreddits creddit-client "50")
+                               (count))))
+    (is (thrown? Exception (-> (subreddits creddit-client "abc")
+                               (count))))))
 
-(deftest test-subreddits-limit
-  (testing "Retrieve 50 subreddits"
-    (is (= 50 (count (subreddits (:credentials creddit-client) 50))))))
+(deftest test-user
+  (testing "Retrieve user profile"
+    (is (= "91u3j" (-> (user creddit-client "thisisbillgates")
+                       (:id))))))
+
+(deftest test-user-posts
+  (testing "Retrieve user posts"
+    (is (= 10 (-> (user-posts creddit-client "thisisbillgates")
+                  (count))))
+    (is (= 50 (-> (user-posts creddit-client "thisisbillgates" 50)
+                  (count))))
+    (is (thrown? Exception (-> (user-posts creddit-client "thisisbillgates" "50")
+                               (count))))
+    (is (thrown? Exception (-> (user-posts creddit-client "thisisbillgates" "abc")
+                               (count))))))
