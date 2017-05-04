@@ -69,38 +69,38 @@
 
 (deftest test-subreddit-controversial
   (testing "Retrieve subreddit posts"
-    (is (= 2 (-> (client/subreddit-controversial creddit-client "programming" 2 :hour)
+    (is (= 2 (-> (client/subreddit-controversial creddit-client "politics" 2 :hour)
                   (count))))
-    (is (thrown? Exception (-> (client/subreddit-controversial creddit-client "programming" "2" :hour)
+    (is (thrown? Exception (-> (client/subreddit-controversial creddit-client "politics" "2" :hour)
                                (count))))
-    (is (thrown? Exception (-> (client/subreddit-controversial creddit-client "programming" 2 "hour")
+    (is (thrown? Exception (-> (client/subreddit-controversial creddit-client "politics" 2 "hour")
                                (count))))))
 
 (deftest test-subreddit-new
   (testing "Retrieve subreddit posts"
-    (is (= 2 (-> (client/subreddit-new creddit-client "programming" 2 :hour)
+    (is (= 2 (-> (client/subreddit-new creddit-client "funny" 2 :hour)
                   (count))))
-    (is (thrown? Exception (-> (client/subreddit-new creddit-client "programming" "2" :hour)
+    (is (thrown? Exception (-> (client/subreddit-new creddit-client "funny" "2" :hour)
                                (count))))
-    (is (thrown? Exception (-> (client/subreddit-new creddit-client "programming" 2 "hour")
+    (is (thrown? Exception (-> (client/subreddit-new creddit-client "funny" 2 "hour")
                                (count))))))
 
 (deftest test-subreddit-rising
   (testing "Retrieve subreddit posts"
-    (is (= 2 (-> (client/subreddit-rising creddit-client "programming" 2 :hour)
+    (is (= 2 (-> (client/subreddit-rising creddit-client "askreddit" 2 :day)
                   (count))))
-    (is (thrown? Exception (-> (client/subreddit-rising creddit-client "programming" "2" :hour)
+    (is (thrown? Exception (-> (client/subreddit-rising creddit-client "askreddit" "2" :hour)
                                (count))))
-    (is (thrown? Exception (-> (client/subreddit-rising creddit-client "programming" 2 "hour")
+    (is (thrown? Exception (-> (client/subreddit-rising creddit-client "askreddit" 2 "hour")
                                (count))))))
 
 (deftest test-subreddit-top
   (testing "Retrieve subreddit posts"
-    (is (= 2 (-> (client/subreddit-top creddit-client "programming" 2 :hour)
+    (is (= 2 (-> (client/subreddit-top creddit-client "aww" 2 :hour)
                   (count))))
-    (is (thrown? Exception (-> (client/subreddit-top creddit-client "programming" "2" :hour)
+    (is (thrown? Exception (-> (client/subreddit-top creddit-client "aww" "2" :hour)
                                (count))))
-    (is (thrown? Exception (-> (client/subreddit-top creddit-client "programming" 2 "hour")
+    (is (thrown? Exception (-> (client/subreddit-top creddit-client "aww" 2 "hour")
                                (count))))))
 
 (deftest test-subreddits
@@ -117,9 +117,9 @@
 
 (deftest test-user-posts
   (testing "Retrieve user posts"
-    (is (= 2 (-> (client/user-posts creddit-client "thisisbillgates" 2 :hour)
+    (is (= 2 (-> (client/user-posts creddit-client "shitty_watercolour" 2 :hour)
                   (count))))
-    (is (thrown? Exception (-> (client/user-posts creddit-client "thisisbillgates" "2" :hour)
+    (is (thrown? Exception (-> (client/user-posts creddit-client "shitty_watercolour" "2" :hour)
                                (count))))
-    (is (thrown? Exception (-> (client/user-posts creddit-client "thisisbillgates" 2 "hour")
+    (is (thrown? Exception (-> (client/user-posts creddit-client "shitty_watercolour" 2 "hour")
                                (count))))))

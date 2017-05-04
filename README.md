@@ -1,6 +1,8 @@
 # creddit
 Clojure wrapper for Reddit API  
 
+[![Build Status](https://travis-ci.org/ThatGuyHughesy/creddit.svg?branch=master)](https://travis-ci.org/ThatGuyHughesy/creddit)
+
 ## Installation
 
 Declare creddit in your project.clj:
