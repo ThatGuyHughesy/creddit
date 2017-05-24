@@ -30,8 +30,7 @@ Your credentials should like like this:
 
 ```edn
 {:user-client <USER_CLIENT>, 
- :user-secret <USER_SECRET>, 
- :refresh-token <REFRESH_TOKEN>}
+ :user-secret <USER_SECRET>}
 ```
 
 Once you have your credentials loaded in you can initialise the client:
@@ -81,6 +80,16 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/subreddit-top creddit-client subreddit limit time)
 ```
 
+*Search subreddit's posts*
+
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)  
+**query:** Search term (Eg: "clojure tutorials", "dank memes" etc...)  
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)   
+
+```clojure
+(creddit/subreddit-search creddit-client subreddit query limit)
+```
+
 ### Subreddits
 
 *Retrieve list of subreddits*
@@ -89,8 +98,24 @@ Once you have your credentials loaded in you can initialise the client:
 
 ```clojure
 (creddit/subreddits creddit-client limit)
+
+(creddit/subreddits-new creddit-client limit)
+
+(creddit/subreddits-popular creddit-client limit)
+
+(creddit/subreddits-gold creddit-client limit)
+
+(creddit/subreddits-default creddit-client limit)
 ```
 
+*Search for subreddit*
+
+**subreddit:** Subreddit search term (Eg: "programming", "clojure", "nodejs" etc...)  
+**limit:** Maximum number of subreddits to retrieve (Minimum: 1, Maximum: 100)   
+
+```clojure
+(creddit/subreddits-search creddit-client subreddit limit)
+```
 
 ### User
 
@@ -100,6 +125,8 @@ Once you have your credentials loaded in you can initialise the client:
 
 ```clojure
 (creddit/user creddit-client username)
+
+(creddit/user-trophies creddit-client username)
 ```
 
 *Retrieve user posts*
@@ -112,6 +139,31 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/user-posts creddit-client username limit time)
 ```
 
+*Retrieve user comments*
+
+**username:** Name of user (Eg: "thisisbillgates", "awildsketchappeared", "way_fairer" etc...)  
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)  
+**time:** Time span of query (One of :hour, :day, :week, :month, :year, :all)
+
+```clojure
+(creddit/user-comments creddit-client username limit time)
+```
+
+### Users
+
+*Retrieve users*
+
+**limit:** Maximum number of users to retrieve (Minimum: 1, Maximum: 100)  
+
+```clojure
+(creddit/users creddit-client limit)
+
+(creddit/users-new creddit-client limit)
+
+(creddit/users-popular creddit-client limit)
+```
+
+
 ## Development
 
 ### Testing
@@ -122,8 +174,7 @@ Create a profiles.clj
 {:test 
   {:env 
     {:user-client <USER_CLIENT>, 
-     :user-secret <USER_SECRET>, 
-     :refresh-token <REFRESH_TOKEN>}}}
+     :user-secret <USER_SECRET>}}}
 ```
 
 Run tests
