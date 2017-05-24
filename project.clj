@@ -1,4 +1,4 @@
-(defproject creddit "0.1.0-SNAPSHOT"
+(defproject creddit "1.1.0-SNAPSHOT"
   :description "Clojure wrapper for Reddit API"
   :url "https://github.com/ThatGuyHughesy/creddit"
   :license {:name "MIT License"

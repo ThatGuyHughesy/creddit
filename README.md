@@ -2,18 +2,15 @@
 Clojure wrapper for Reddit API  
 
 [![Build Status](https://travis-ci.org/ThatGuyHughesy/creddit.svg?branch=master)](https://travis-ci.org/ThatGuyHughesy/creddit)
+[![Clojars Project](https://img.shields.io/clojars/v/creddit.svg)](https://clojars.org/creddit)
 
 ## Installation
 
 Declare creddit in your project.clj:
-  
-```clojure
-(defproject xxxx "1.0.0-SNAPSHOT"
-  :dependencies [[creddit "0.1.0"]])
-```
+
+[![Clojars Project](http://clojars.org/creddit/latest-version.svg)](http://clojars.org/creddit)
   
 Use creddit in your clojure code:
-
 
 ```clojure
 (require '[creddit.core :as creddit])
