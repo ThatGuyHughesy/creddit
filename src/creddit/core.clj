@@ -12,9 +12,20 @@
   (subreddit-new [this subreddit limit time])
   (subreddit-rising [this subreddit limit time])
   (subreddit-top [this subreddit limit time])
+  (subreddit-search [this subreddit query limit])
   (subreddits [this limit])
+  (subreddits-new [this limit])
+  (subreddits-popular [this limit])
+  (subreddits-gold [this limit])
+  (subreddits-default [this limit])
+  (subreddits-search [this subreddit limit])
   (user [this username])
-  (user-posts [this username limit time]))
+  (user-trophies [this username])
+  (user-posts [this username limit time])
+  (user-comments [this username limit time])
+  (users [this limit])
+  (users-new [this limit])
+  (users-popular [this limit]))
 
 (defrecord CredditClient [credentials]
   RedditApi
@@ -28,9 +39,20 @@
   (subreddit-new [this subreddit limit time] (client/subreddit-new credentials subreddit limit time))
   (subreddit-rising [this subreddit limit time] (client/subreddit-rising credentials subreddit limit time))
   (subreddit-top [this subreddit limit time] (client/subreddit-top credentials subreddit limit time))
+  (subreddit-search [this subreddit query limit] (client/subreddit-search credentials subreddit query limit))
   (subreddits [this limit] (client/subreddits credentials limit))
+  (subreddits-new [this limit] (client/subreddits-new credentials limit))
+  (subreddits-popular [this limit] (client/subreddits-popular credentials limit))
+  (subreddits-gold [this limit] (client/subreddits-gold credentials limit))
+  (subreddits-default [this limit] (client/subreddits-default credentials limit))
+  (subreddits-search [this subreddit limit] (client/subreddits-search credentials subreddit limit))
   (user [this username] (client/user credentials username))
-  (user-posts [this username limit time] (client/user-posts credentials username limit time)))
+  (user-trophies [this username] (client/user-trophies credentials username))
+  (user-posts [this username limit time] (client/user-posts credentials username limit time))
+  (user-comments [this username limit time] (client/user-comments credentials username limit time))
+  (users [this limit] (client/users credentials limit))
+  (users-new [this limit] (client/users-new credentials limit))
+  (users-popular [this limit] (client/users-popular credentials limit)))
 
 (defn init
   [credentials]
