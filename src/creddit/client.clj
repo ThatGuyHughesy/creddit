@@ -201,3 +201,8 @@
   (if (valid-limit? limit)
     (-> (http-get credentials (str "https://www.reddit.com/users/popular/.json?limit=" limit))
         (parse-response))))
+
+(defn listing
+  [credentials names]
+  (-> (http-get credentials (str "https://www.reddit.com/by_id/" (string/join "," names) "/.json"))
+      (parse-response)))

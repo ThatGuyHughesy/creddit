@@ -160,6 +160,16 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/users-popular creddit-client limit)
 ```
 
+### Listings
+
+*Retrieve specific posts**
+
+**names:** Sequence of fully specified [fullnames](https://www.reddit.com/dev/api#fullnames).
+
+```clojure
+(creddit/listing creddit-client names)
+```
+
 
 ## Development
 
