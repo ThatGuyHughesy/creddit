@@ -165,15 +165,6 @@ Once you have your credentials loaded in you can initialise the client:
 
 ### Testing
 
-Create a profiles.clj
-
-```clojure
-{:test 
-  {:env 
-    {:user-client <USER_CLIENT>, 
-     :user-secret <USER_SECRET>}}}
-```
-
 Run tests
 
 ```sh

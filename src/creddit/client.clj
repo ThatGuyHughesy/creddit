@@ -63,61 +63,61 @@
 (defn frontpage
   [credentials limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn controversial
   [credentials limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/controversial/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/controversial/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn new
   [credentials limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/new/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/new/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn rising
   [credentials limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/rising/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/rising/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn top
   [credentials limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/top/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/top/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit-controversial
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/controversial/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/controversial/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit-new
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/new/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/new/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit-rising
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/rising/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/rising/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit-top
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/top/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/top/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn subreddit-search
@@ -135,7 +135,7 @@
 (defn subreddits-new
   [credentials limit]
   (if (valid-limit? limit)
-    (-> (http-get credentials (str "https://www.reddit.com/subreddits/.json?limit=" limit))
+    (-> (http-get credentials (str "https://www.reddit.com/subreddits/new/.json?limit=" limit))
         (parse-response))))
 
 (defn subreddits-popular
@@ -170,13 +170,13 @@
 (defn user-posts
   [credentials username limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/user/" username "/submitted/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/user/" username "/submitted/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn user-comments
   [credentials username limit time]
   (if (and (valid-limit? limit) (valid-time? time))
-    (-> (http-get credentials (str "https://www.reddit.com/user/" username "/comments/.json?limit=" limit "&t=" time))
+    (-> (http-get credentials (str "https://www.reddit.com/user/" username "/comments/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
 (defn user-trophies
