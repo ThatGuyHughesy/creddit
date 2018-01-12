@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.7.1"]
                  [clj-http "3.4.1"]
-                 [environ "1.1.0"]
                  [slingshot "0.12.2"]]
   :dev-dependencies [[lein-clojars "0.9.1"]]
-  :plugins [[lein-environ "1.0.0"]])
+  :profiles {:test
+             {:dependencies [[clj-http-fake "1.0.3"]]}})
