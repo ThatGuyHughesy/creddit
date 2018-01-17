@@ -260,3 +260,14 @@
              (client/users-popular creddit-client 10))
            parsed-reddit-response))
     (is (thrown? Exception (client/users-popular creddit-client "10")))))
+
+(deftest test-listing
+  (testing "Retrieve named posts"
+    (is (= (with-fake-routes-in-isolation
+             {"https://www.reddit.com/by_id/t3_7ktt45,t3_7jj5nf/.json"
+              (fn [request]
+                {:status 200 :headers {} :body reddit-response})}
+             (client/listing creddit-client ["t3_7ktt45" "t3_7jj5nf"]))
+           parsed-reddit-response))
+    (is (thrown? Exception (client/listing creddit-client "t3_7jj5nf")))
+    (is (thrown? Exception (client/listing creddit-client :t3_7jj5nf)))))

@@ -25,7 +25,8 @@
   (user-comments [this username limit time])
   (users [this limit])
   (users-new [this limit])
-  (users-popular [this limit]))
+  (users-popular [this limit])
+  (listing [this names]))
 
 (defrecord CredditClient [credentials]
   RedditApi
@@ -52,7 +53,8 @@
   (user-comments [this username limit time] (client/user-comments credentials username limit time))
   (users [this limit] (client/users credentials limit))
   (users-new [this limit] (client/users-new credentials limit))
-  (users-popular [this limit] (client/users-popular credentials limit)))
+  (users-popular [this limit] (client/users-popular credentials limit))
+  (listing [this names] (client/listing credentials names)))
 
 (defn init
   [credentials]
