@@ -1,4 +1,4 @@
-# creddit
+# Creddit
 Clojure wrapper for Reddit API  
 
 [![Build Status](https://travis-ci.org/ThatGuyHughesy/creddit.svg?branch=master)](https://travis-ci.org/ThatGuyHughesy/creddit)
@@ -23,7 +23,7 @@ You will need your Reddit application credentials found here https://www.reddit.
 
 I would recommend using a library such as [cprop](https://github.com/tolitius/cprop) or [environ](https://github.com/weavejester/environ/) to load them in
 
-Your credentials should like like this:  
+Your credentials should like this:  
 
 ```edn
 {:user-client <USER_CLIENT>, 
@@ -180,6 +180,11 @@ Run tests
 ```sh
 $ lein test
 ```
+
+## Contributing
+
+Want to become a Creddit [contributor](https://github.com/ThatGuyHughesy/creddit/blob/master/CONTRIBUTORS.md)?  
+Then checkout our [code of conduct](https://github.com/ThatGuyHughesy/creddit/blob/master/CODE_OF_CONDUCT.md) and [contributing guidelines](https://github.com/ThatGuyHughesy/creddit/blob/master/CONTRIBUTING.md).
 
 ## Copyright & License
 

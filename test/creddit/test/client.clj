@@ -1,8 +1,7 @@
 (ns creddit.test.client
   (:require [clojure.test :refer :all]
             [clj-http.fake :refer :all]
-            [creddit.client :as client]
-            [clj-http.client :as http]))
+            [creddit.client :as client]))
 
 (def creddit-client {})
 
