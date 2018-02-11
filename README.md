@@ -87,6 +87,15 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/subreddit-search creddit-client subreddit query limit)
 ```
 
+*Retrieve about from subreddit*
+
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)  
+
+```clojure
+(creddit/subreddit-about creddit-client subreddit)
+```
+
+
 ### Subreddits
 
 *Retrieve list of subreddits*

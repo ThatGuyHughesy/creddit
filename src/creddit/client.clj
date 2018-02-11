@@ -126,6 +126,11 @@
     (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/search/.json?q=" query "&limit=" limit))
         (parse-response))))
 
+(defn subreddit-about
+  [credentials subreddit]
+  (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/about/.json"))
+      (parse-response)))
+
 (defn subreddits
   [credentials limit]
   (if (valid-limit? limit)
