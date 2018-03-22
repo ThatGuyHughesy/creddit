@@ -129,6 +129,15 @@
            parsed-reddit-response))
     (is (thrown? Exception (client/subreddit-search creddit-client "DIY" "ikea" "10")))))
 
+(deftest test-subreddit-about
+  (testing "Retrieve about data for subreddit"
+    (is (= (with-fake-routes
+             {"https://www.reddit.com/r/clojure/about/.json"
+              (fn [request]
+                {:status 200 :headers {} :body reddit-response})}
+             (client/subreddit-about creddit-client "clojure"))
+           parsed-reddit-response))))
+
 (deftest test-subreddits
   (testing "Retrieve subreddits"
     (is (= (with-fake-routes
