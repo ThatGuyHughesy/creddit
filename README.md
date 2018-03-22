@@ -95,7 +95,6 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/subreddit-about creddit-client subreddit)
 ```
 
-
 ### Subreddits
 
 *Retrieve list of subreddits*
