@@ -119,6 +119,16 @@
     (is (thrown? Exception (client/subreddit-top creddit-client "aww" "10" :month)))
     (is (thrown? Exception (client/subreddit-top creddit-client "aww" 10 "month")))))
 
+(deftest test-subreddit-comments
+  (testing "Retrieve latest subreddit comments"
+    (is (= (with-fake-routes
+             {"https://www.reddit.com/r/notinteresting/comments/.json?limit=10"
+              (fn [request]
+                {:status 200 :headers {} :body reddit-response})}
+             (client/subreddit-comments creddit-client "notinteresting" 10))
+           parsed-reddit-response))
+      (is (thrown? Exception (client/subreddit-comments creddit-client "notinteresting" "10")))))
+
 (deftest test-subreddit-search
   (testing "Search subreddit posts"
     (is (= (with-fake-routes

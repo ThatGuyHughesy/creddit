@@ -9,7 +9,7 @@ Clojure wrapper for Reddit API
 Declare creddit in your project.clj:
 
 [![Clojars Project](http://clojars.org/creddit/latest-version.svg)](http://clojars.org/creddit)
-  
+
 Use creddit in your clojure code:
 
 ```clojure
@@ -26,7 +26,7 @@ I would recommend using a library such as [cprop](https://github.com/tolitius/cp
 Your credentials should like this:  
 
 ```edn
-{:user-client <USER_CLIENT>, 
+{:user-client <USER_CLIENT>,
  :user-secret <USER_SECRET>}
 ```
 
@@ -75,6 +75,15 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/subreddit-rising creddit-client subreddit limit time)
 
 (creddit/subreddit-top creddit-client subreddit limit time)
+```
+
+*Retrieve recent comments from subreddit*
+
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)  
+**limit:** Maximum number of comments to retrieve (Minimum: 1, Maximum: 100)
+
+```clojure
+(creddit/subreddit-comments creddit-client subreddit limit)
 ```
 
 *Search subreddit's posts*
@@ -197,4 +206,3 @@ Then checkout our [code of conduct](https://github.com/ThatGuyHughesy/creddit/bl
 ## Copyright & License
 
 Copyright (c) 2017 Conor Hughes - Released under the MIT license.
-
