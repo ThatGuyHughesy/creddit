@@ -2,8 +2,7 @@
   (:require [clj-http.client :as client]
             [clojure.string :as string]
             [cheshire.core :refer :all]
-            [slingshot.slingshot :refer :all])
-  (:import (java.net URLEncoder)))
+            [slingshot.slingshot :refer :all]))
 
 (defn- parse-response
   [response]
