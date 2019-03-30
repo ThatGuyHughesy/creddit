@@ -136,6 +136,12 @@
   (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/about/.json"))
       (parse-response)))
 
+(defn subreddit-moderators
+  [credentials subreddit]
+  (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/about/moderators/.json"))
+      :data
+      :children))
+
 (defn subreddits
   [credentials limit]
   (if (valid-limit? limit)

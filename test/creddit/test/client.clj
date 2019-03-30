@@ -148,6 +148,15 @@
              (client/subreddit-about creddit-client "clojure"))
            parsed-reddit-response))))
 
+(deftest test-subreddit-moderators
+  (testing "Retrieve moderators of a subreddit"
+    (is (= (with-fake-routes
+             {"https://www.reddit.com/r/clojure/about/moderators/.json"
+              (fn [request]
+                {:status 200 :headers {} :body "{\"data\":{\"children\":[{\"message\":\"test\"}]}}"})}
+             (client/subreddit-moderators creddit-client "clojure"))
+           parsed-reddit-response))))
+
 (deftest test-subreddits
   (testing "Retrieve subreddits"
     (is (= (with-fake-routes

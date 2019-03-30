@@ -104,6 +104,14 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/subreddit-about creddit-client subreddit)
 ```
 
+*Retrieve moderators of a subreddit*
+
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)
+
+```clojure
+(creddit/subreddit-moderators creddit-client subreddit)
+```
+
 ### Subreddits
 
 *Retrieve list of subreddits*
