@@ -122,7 +122,7 @@
 (defn subreddit-hot
   [credentials subreddit limit]
   (if (valid-limit? limit)
-    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/top/.json?limit=" limit))
+    (-> (http-get credentials (str "https://www.reddit.com/r/" subreddit "/hot/.json?limit=" limit))
         (parse-response))))
 
 (defn subreddit-comments
