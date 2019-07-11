@@ -127,7 +127,7 @@
                 {:status 200 :headers {} :body reddit-response})}
              (client/subreddit-hot creddit-client "aww" 10))
            parsed-reddit-response))
-    (is (thrown? Exception (client/subreddit-hot creddit-client "aww" 10)))))
+    (is (thrown? Exception (client/subreddit-hot creddit-client "aww" "10")))))
 
 (deftest test-subreddit-comments
   (testing "Retrieve latest subreddit comments"
