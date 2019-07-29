@@ -6,13 +6,9 @@
 
 (defn- parse-response
   [response]
-  (if-let [data (or (get-in response [:data :children])
+  (if-let [coll (or (get-in response [:data :children])
                     (get-in response [:data :trophies]))]
-    (reduce
-      (fn [posts post]
-        (conj posts (:data post)))
-      []
-      data)
+    (map :data coll)
     (:data response)))
 
 (defn- valid-limit? [limit]
