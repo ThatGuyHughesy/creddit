@@ -2,7 +2,8 @@
 
 Creddit is the result of the work of many people who made the code better:
 
- - Elliott Seyler (seylerius)
- - Steven Harms (sharms)
- - Cody Maden (sli)
- - Jon (saejo)
+ - [seylerius](https://github.com/seylerius)
+ - [sharms](https://github.com/sharms)
+ - [sli](https://github.com/sli)
+ - [saejo](https://github.com/saejo)
+ - [saurabh-ku](https://github.com/saurabh-ku)
