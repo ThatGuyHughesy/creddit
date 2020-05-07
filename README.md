@@ -27,8 +27,12 @@ Your credentials should like this:
 
 ```edn
 {:user-client <USER_CLIENT>,
- :user-secret <USER_SECRET>}
+ :user-secret <USER_SECRET>,
+ :username <REDDIT_USERNAME>,
+ :password <REDDIT_PASSWORD>}
 ```
+
+The username and password are needed for some actions like submitting but are optional for anonymous actions.
 
 Once you have your credentials loaded in you can initialise the client:
 
@@ -187,7 +191,7 @@ Once you have your credentials loaded in you can initialise the client:
 
 ### Listings
 
-*Retrieve specific posts**
+*Retrieve specific posts*
 
 **names:** Sequence of fully specified [fullnames](https://www.reddit.com/dev/api#fullnames).
 
@@ -195,6 +199,18 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/listing creddit-client names)
 ```
 
+### Submitting
+
+*Submit self or link posts*
+
+**subreddit:** Name of subreddit (Eg: "programming", "funny", "pics" etc...)  
+**kind:** "self" or "link" (image uploads are not supported)  
+**title:** Title for the post (Eg: "test post please ignore")  
+**content:** Text for self posts or url for link posts
+
+```clojure
+(creddit/submit creddit-client subreddit kind title content)
+```
 
 ## Development
 

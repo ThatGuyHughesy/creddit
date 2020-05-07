@@ -28,7 +28,27 @@
       (ex-info "Invalid time - Must be one of the following: :hour, :day, :week, :month, :year, :all."
                {:causes :invalid-time}))))
 
-(defn get-access-token
+(defn get-access-token-with-user
+  [credentials]
+  (try+
+    (-> (client/post "https://www.reddit.com/api/v1/access_token"
+                     {:basic-auth [(:user-client credentials) (:user-secret credentials)]
+                      :headers {"User-Agent" "creddit"}
+                      :form-params {:grant_type "password"
+                                    :device_id (str (java.util.UUID/randomUUID))
+                                    :username (:username credentials)
+                                    :password (:password credentials)}
+                      :content-type "application/x-www-form-urlencoded"
+                      :socket-timeout 10000
+                      :conn-timeout 10000
+                      :as :json})
+        (get :body))
+    (catch [:status 401] {}
+      (throw
+        (ex-info "Unauthorised, please check your credentials are correct."
+                 {:causes :unauthorised})))))
+
+(defn get-access-token-without-user
   [credentials]
   (try+
     (-> (client/post "https://www.reddit.com/api/v1/access_token"
@@ -45,6 +65,10 @@
       (throw
         (ex-info "Unauthorised, please check your credentials are correct."
                  {:causes :unauthorised})))))
+
+(defn get-access-token
+  [credentials]
+  (if (:username credentials) (get-access-token-with-user credentials) (get-access-token-without-user credentials)))
 
 (defn- http-get [credentials url]
   (-> (client/get url
@@ -218,3 +242,20 @@
   [credentials names]
   (-> (http-get credentials (str "https://www.reddit.com/by_id/" (string/join "," names) "/.json"))
       (parse-response)))
+
+; other functions use credentials directly, unsure why mine needs to get them from the client with get-in...
+(defn submit
+  [credentials subreddit kind title content]
+  (-> (client/post "https://oauth.reddit.com/api/submit"
+                   {:headers {:User-Agent "creddit"
+                              :Authorization (str "bearer " (get-in credentials [:credentials :access-token]))}
+                    :form-params {:sr subreddit
+                                  :kind kind
+                                  :title title
+                                  (cond
+                                    (= kind "self") :text
+                                    (= kind "link") :url) content}
+                    :socket-timeout 10000
+                    :conn-timeout 10000
+                    :as :json})
+      (get :body)))

@@ -29,7 +29,8 @@
   (users [this limit])
   (users-new [this limit])
   (users-popular [this limit])
-  (listing [this names]))
+  (listing [this names])
+  (submit [this subreddit kind title content]))
 
 (defrecord CredditClient [credentials]
   RedditApi
@@ -60,7 +61,8 @@
   (users [this limit] (client/users credentials limit))
   (users-new [this limit] (client/users-new credentials limit))
   (users-popular [this limit] (client/users-popular credentials limit))
-  (listing [this names] (client/listing credentials names)))
+  (listing [this names] (client/listing credentials names))
+  (submit [this subreddit kind title content] (client/submit credentials subreddit kind title content)))
 
 (defn init
   [credentials]
