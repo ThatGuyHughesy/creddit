@@ -15,8 +15,6 @@
   (subreddit-comments [this subreddit limit])
   (subreddit-comments-after [this subreddit commentId limit time])
   (subreddit-comments-before [this subreddit commentId limit time])
-  (subreddit-posts-after [this subreddit postId limit time])
-  (subreddit-posts-before [this subreddit postId limit time])
   (subreddit-search [this subreddit query limit])
   (subreddit-about [this subreddit])
   (subreddit-moderators [this subreddit])
