@@ -8,3 +8,5 @@ Creddit is the result of the work of many people who made the code better:
  - [saejo](https://github.com/saejo)
  - [saurabh-ku](https://github.com/saurabh-ku)
  - [xivh](https://github.com/xivh)
+ - [OliverAndrews](https://github.com/OliverAndrews)
+ - [terminal](jasonphillipmitchell@gmail.com)
