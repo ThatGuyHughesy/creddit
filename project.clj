@@ -3,7 +3,7 @@
   :url "https://github.com/ThatGuyHughesy/creddit"
   :license {:name "MIT License"
             :url "https://opensource.org/licenses/MIT"}
-  :author "Conor Hughes <hello@conorhughes.me>"
+  :author "Conor Hughes <conor.hughes@hey.com>"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.7.1"]
                  [clj-http "3.4.1"]
