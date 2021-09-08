@@ -1,7 +1,7 @@
 # Creddit
 Clojure wrapper for Reddit API  
 
-[![Build Status](https://travis-ci.org/ThatGuyHughesy/creddit.svg?branch=master)](https://travis-ci.org/ThatGuyHughesy/creddit)
+[![Build Status](https://travis-ci.com/ThatGuyHughesy/creddit.svg?branch=master)](https://travis-ci.com/ThatGuyHughesy/creddit)
 [![Clojars Project](https://img.shields.io/clojars/v/creddit.svg)](https://clojars.org/creddit)
 
 ## Installation
