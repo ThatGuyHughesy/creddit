@@ -153,6 +153,12 @@
     (-> (http-get credentials (str "https://www.reddit.com/top/.json?limit=" limit "&t=" (name time)))
         (parse-response))))
 
+(defn search
+  [credentials query limit]
+  (if (valid-limit? limit)
+    (-> (http-get credentials (str "https://www.reddit.com/search/.json?q=" query "&limit=" limit))
+        (parse-response))))
+
 (defn subreddit
   [credentials subreddit limit time]
   (if (and (valid-limit? limit) (valid-time? time))
