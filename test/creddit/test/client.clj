@@ -64,6 +64,18 @@
     (is (thrown? Exception (client/top creddit-client "10" :year)))
     (is (thrown? Exception (client/top creddit-client 10 "year")))))
 
+
+(deftest test-search
+  (testing "Search posts site-wide"
+    (is (= (with-fake-routes
+             {"https://www.reddit.com/search/.json?q=ikea&limit=10"
+              (fn [request]
+                {:status 200 :headers {} :body reddit-response})}
+             (client/search creddit-client "ikea" 10))
+           parsed-reddit-response))
+    (is (thrown? Exception (client/search creddit-client "ikea" "10")))))
+
+
 (deftest test-subreddit
   (testing "Retrieve subreddit posts"
     (is (= (with-fake-routes

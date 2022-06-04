@@ -61,6 +61,15 @@ Once you have your credentials loaded in you can initialise the client:
 (creddit/top creddit-client limit time)
 ```
 
+*Site-wide search for posts*
+
+**query:** Search query (Eg: "clojure tutorials", "site:'clojuredocs.org'" etc...)  
+**limit:** Maximum number of posts to retrieve (Minimum: 1, Maximum: 100)   
+
+```clojure
+(creddit/search creddit-client query limit)
+```
+
 ### Subreddit
 
 *Retrieve posts from subreddit*
