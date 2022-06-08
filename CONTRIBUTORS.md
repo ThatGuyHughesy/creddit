@@ -10,3 +10,4 @@ Creddit is the result of the work of many people who made the code better:
  - [xivh](https://github.com/xivh)
  - [OliverAndrews](https://github.com/OliverAndrews)
  - [terminal](jasonphillipmitchell@gmail.com)
+ - [wjlafrance](https://github.com/wjlafrance)
